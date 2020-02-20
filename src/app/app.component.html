@@ -5,6 +5,10 @@
 		{{'Idag' | uppercase}} är det
 		{{ today | date:'yyyy-MM-dd ' }}
 	</p>
+
+	<button (click)="displayDaysOn()">Visa</button>
+	<button (click)="displayDaysOff()">Dölj</button>
+
 	<!-- days: class property -->
 	<!-- day: loopvariabel -->
 	<!-- Bara ett "structural directive" per element! -->
@@ -15,6 +19,11 @@
 			{{ day.content }}
 		</div>
 	</ng-container>
+
+	<app-day-info [day]="'example'" [content]="'content example'"></app-day-info>
+	<app-day-info></app-day-info>
+	<app-day-info></app-day-info>
+
 </main>
 
 

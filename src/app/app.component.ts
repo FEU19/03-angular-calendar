@@ -25,6 +25,13 @@ export class AppComponent implements OnInit {
 		}
 	]
 
+	displayDaysOn(): void {
+		this.displayDays = true;
+	}
+	displayDaysOff(): void {
+		this.displayDays = false;
+	}
+
 	ngOnInit(): void {
 		console.log('days is:', this.days)
 	}

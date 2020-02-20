@@ -1,0 +1,7 @@
+.day-card {
+	border: 1px solid gray;
+	border-radius: 6px;
+	padding: 0.5em;
+	margin: 0.5em;
+	background-color: #FBF8EF;
+}
