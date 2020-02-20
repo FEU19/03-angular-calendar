@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
 	title = 'calendar';
 	today = Date.now();
 	displayDays = false;
+	whatToDoToday: string = 'ta det lugnt';
 	days: Day[] = [
 		{
 			day: '2020-02-17',
@@ -30,6 +31,9 @@ export class AppComponent implements OnInit {
 	}
 	displayDaysOff(): void {
 		this.displayDays = false;
+	}
+	handleChoose(text: string): void {
+		this.whatToDoToday = text;
 	}
 
 	ngOnInit(): void {

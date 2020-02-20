@@ -1,9 +1,12 @@
 <main>
 	Demo app
 
+<!-- whatToDoToday fås från DayInfoComponent med hjälp av ett get event. -->
 	<p>
 		{{'Idag' | uppercase}} är det
 		{{ today | date:'yyyy-MM-dd ' }}
+		och jag ska fokusera på
+		<span style="font-weight: bold;">{{ whatToDoToday }}</span>
 	</p>
 
 	<button (click)="displayDaysOn()">Visa</button>
@@ -14,18 +17,14 @@
 	<!-- Bara ett "structural directive" per element! -->
 	<!-- Använd antingen ett extra div element eller ng-container -->
 	<ng-container *ngIf="displayDays">
-		<div *ngFor="let day of days" class="day-card">
-			<span style="font-weight: bold;">{{ day.day }}</span> <br />
-			{{ day.content }}
-		</div>
+		<app-day-info
+			*ngFor="let day of days"
+			[day]="day.day"
+			[content]="day.content"
+			(choose)="handleChoose($event)"></app-day-info>
 	</ng-container>
 
 	<!-- I stället för att ha all information i AppComponent så skapar vi en ny komponent, DayInfoComponent. Den har ansvar för all information om en dag (Day-objekt) så att AppComponent inte behöver kunna det. -->
-	<!-- Square brackets [] är data binding. Det som står till höger om likamed-tecknet ska skickas till class property day i DayInfoComponent. -->
-	<app-day-info [day]="'example'" [content]="'content example'"></app-day-info>
-	<!-- Nästa steg är att byta ut 'example' mot Day-objekten i AppComponent -->
-	<app-day-info></app-day-info>
-	<app-day-info></app-day-info>
 
 </main>
 
