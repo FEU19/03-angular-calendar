@@ -6,10 +6,10 @@ import { Day } from './day';
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css']
 })
-// function f(x: number, y: string): void {}
 export class AppComponent implements OnInit {
 	title = 'calendar';
 	today = Date.now();
+	displayDays = false;
 	days: Day[] = [
 		{
 			day: '2020-02-17',

@@ -7,8 +7,19 @@
 	</p>
 	<!-- days: class property -->
 	<!-- day: loopvariabel -->
-	<div *ngFor="let day of days" class="day-card">
-		<span style="font-weight: bold;">{{ day.day }}</span> <br />
-		{{ day.content }}
-	</div>
+	<!-- Bara ett "structural directive" per element! -->
+	<!-- Använd antingen ett extra div element eller ng-container -->
+	<ng-container *ngIf="displayDays">
+		<div *ngFor="let day of days" class="day-card">
+			<span style="font-weight: bold;">{{ day.day }}</span> <br />
+			{{ day.content }}
+		</div>
+	</ng-container>
 </main>
+
+
+
+
+
+
+<!--  -->
