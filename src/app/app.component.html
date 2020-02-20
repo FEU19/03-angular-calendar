@@ -20,7 +20,10 @@
 		</div>
 	</ng-container>
 
+	<!-- I stället för att ha all information i AppComponent så skapar vi en ny komponent, DayInfoComponent. Den har ansvar för all information om en dag (Day-objekt) så att AppComponent inte behöver kunna det. -->
+	<!-- Square brackets [] är data binding. Det som står till höger om likamed-tecknet ska skickas till class property day i DayInfoComponent. -->
 	<app-day-info [day]="'example'" [content]="'content example'"></app-day-info>
+	<!-- Nästa steg är att byta ut 'example' mot Day-objekten i AppComponent -->
 	<app-day-info></app-day-info>
 	<app-day-info></app-day-info>
 

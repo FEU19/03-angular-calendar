@@ -1,3 +1,4 @@
+/* CSS är "scoped" i Angular. CSS-klassen .day-card fungerar bara för DayInfoComponent. */
 .day-card {
 	border: 1px solid gray;
 	border-radius: 6px;
