@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Day } from './day';
+import { DayServiceService } from './day-service.service';
 
 @Component({
 	selector: 'app-root',
@@ -11,20 +12,7 @@ export class AppComponent implements OnInit {
 	today = Date.now();
 	displayDays = false;
 	whatToDoToday: string = 'ta det lugnt';
-	days: Day[] = [
-		{
-			day: '2020-02-17',
-			content: 'Pluggade Angular'
-		},
-		{
-			day: '2020-02-18',
-			content: 'Bästa lektionen EVER'
-		},
-		{
-			day: '2020-02-19',
-			content: 'Repetera'
-		}
-	]
+	days: Day[];
 
 	displayDaysOn(): void {
 		this.displayDays = true;
@@ -36,8 +24,11 @@ export class AppComponent implements OnInit {
 		this.whatToDoToday = text;
 	}
 
+	// skapa en class property "dayService"
+	constructor(public dayService: DayServiceService) {}
+
 	ngOnInit(): void {
-		console.log('days is:', this.days)
+		this.days = this.dayService.getDays();
 	}
 }
 
